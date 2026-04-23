@@ -9,5 +9,4 @@ public abstract class TeclaBlanca extends Tecla{
     TeclaBlanca(int n){
         super(n);
     }
-
 }

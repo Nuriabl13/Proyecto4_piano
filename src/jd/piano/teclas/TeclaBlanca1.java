@@ -10,26 +10,38 @@ public class TeclaBlanca1 extends TeclaBlanca{
 
     @Override
     protected int[] getVerticesX() {
-        return new int[0];
+        int N = TeclaNegra.ANCHURA;
+        int B = TeclaBlanca.ANCHURA;
+        int[] x = new int[]{
+                super.posicion.x,
+                (super.posicion.x+B)-(N/2),
+                super.posicion.x+B,
+        };
+        return x;
     }
 
     @Override
     protected int[] getVerticesY() {
-        return new int[0];
+        int[] y = new int[]{
+                super.posicion.y,
+                super.posicion.y + TeclaNegra.ALTURA,
+                super.posicion.y + TeclaBlanca.ALTURA,
+        };
+        return y;
     }
 
     @Override
     public Color getColorNoPulsado() {
-        return null;
+        return Color.white;
     }
 
     @Override
     public int getAnchura() {
-        return 0;
+        return TeclaBlanca.ANCHURA;
     }
 
     @Override
     public int getAltura() {
-        return 0;
+        return TeclaBlanca.ALTURA;
     }
 }
