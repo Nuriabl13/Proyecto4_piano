@@ -1,5 +1,7 @@
 package jd.piano.teclas;
 
+import bpc.daw.consola.Consola;
+
 import java.awt.*;
 
 public abstract class Tecla implements Pulsable{
@@ -12,6 +14,7 @@ public abstract class Tecla implements Pulsable{
         this.nota=n;
         this.posicion= null;
         this.colorPulsada=null;
+        this.graphics = new Consola().getCapaCanvas().getGraphics();
     }
     public int getNumeroNota(){
         return this.nota;
@@ -51,6 +54,13 @@ public abstract class Tecla implements Pulsable{
     }
     @Override
     public void dibujar(){
+        if(this.posicion ==null || this.graphics==null){
+            throw new IllegalArgumentException("hay que llamar a setPosición y setGraphics antes de llamar al método dibujar");
+        }
+        this.graphics.setColor(this.getColor());
+        this.graphics.fillPolygon(this.getVerticesX(),this.getVerticesY(),this.nota);
+        this.graphics.setColor(Color.BLACK);
+        this.graphics.drawPolygon(this.getVerticesX(),this.getVerticesY(),this.nota);
 
     }
     @Override
