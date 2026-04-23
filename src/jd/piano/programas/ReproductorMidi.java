@@ -29,9 +29,8 @@ public class ReproductorMidi implements Receiver{
 
     public void reproducir(String ruta){
         try {
-            Sequence secuencia = MidiSystem.getSequence(new File(ruta));
             Sequencer sistema = MidiSystem.getSequencer();
-
+            Sequence secuencia = MidiSystem.getSequence(new File(ruta));
 
             sistema.open();  //Abrimos el el Sequencer
 

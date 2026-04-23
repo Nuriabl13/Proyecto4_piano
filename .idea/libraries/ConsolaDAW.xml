@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/ConsolaDAW/ConsolaDAW/ConsolaDAW.jar!/" />
       <root url="jar://$PROJECT_DIR$/../librerías tema 2/ConsolaDAW/ConsolaDAW/ConsolaDAW.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../LIBRERIAS/Tema2_librerias/librerías tema 2/librerías tema 2/ConsolaDAW/ConsolaDAW/ConsolaDAW.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
