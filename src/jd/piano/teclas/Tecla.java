@@ -1,7 +1,5 @@
 package jd.piano.teclas;
 
-import bpc.daw.consola.Consola;
-
 import java.awt.*;
 
 public abstract class Tecla implements Pulsable{

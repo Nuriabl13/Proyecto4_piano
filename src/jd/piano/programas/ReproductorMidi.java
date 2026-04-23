@@ -31,11 +31,15 @@ public class ReproductorMidi implements Receiver{
         try {
             Sequencer sistema = MidiSystem.getSequencer();
             Sequence secuencia = MidiSystem.getSequence(new File(ruta));
-
+            sistema.setSequence(secuencia);
             sistema.open();  //Abrimos el el Sequencer
 
             Transmitter transmisor = sistema.getTransmitter();
+
+
+
             Receiver recibidor = transmisor.getReceiver();
+
             transmisor.setReceiver(recibidor);
 
             sistema.start(); //Empieza a reproducir la cancion
