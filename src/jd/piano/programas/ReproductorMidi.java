@@ -78,12 +78,11 @@ public class ReproductorMidi implements Receiver{
                         } else {
                             teclaSeleccionada.soltar();
                         }
-                        teclaSeleccionada.
                     }
                     if(nComando == ShortMessage.NOTE_OFF){
-
+                        teclaSeleccionada.soltar();
                     }
-
+                    teclaSeleccionada.dibujar(); //Dibujamos la tecla
                 } //No hay una tecla para esa nota Musical
             }
 
