@@ -14,7 +14,7 @@ public abstract class Tecla implements Pulsable{
         this.nota=n;
         this.posicion= null;
         this.colorPulsada=null;
-        this.graphics = new Consola().getCapaCanvas().getGraphics();
+        this.graphics = null;
     }
     public int getNumeroNota(){
         return this.nota;
