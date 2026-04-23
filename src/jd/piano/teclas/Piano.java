@@ -10,14 +10,17 @@ public abstract class Piano {
     private Graphics graphics;
 
     public Piano(){
-
+        this.teclaInicial = 0;
+        this.teclaFinal = 0;
+        this.posicion = null;
+        this.graphics = null;
     }
     public abstract Tecla getTecla(int canal, int nota);
 
     public int getTeclaInicial(){
-        return 0;
+        return this.teclaInicial;
     }
     public int getTeclaFinal(){
-        return 0;
+        return this.teclaFinal;
     }
 }
