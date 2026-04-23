@@ -1,13 +1,15 @@
 package jd.piano.programas;
 
 import jd.piano.teclas.Piano;
+import jd.piano.teclas.Tecla;
+
 import javax.sound.midi.*;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class ReproductorMidi {
+public class ReproductorMidi implements Receiver{
 
     private static final Color[] COLORES = {
             Color.RED,Color.ORANGE,Color.CYAN,Color.YELLOW,Color.PINK,
@@ -43,8 +45,6 @@ public class ReproductorMidi {
             transmisor.close(); //Cerramos el transmisor
             sistema.close(); //Cerramos el Sequencer
 
-
-
         }catch (MidiUnavailableException e){
             System.out.println(e.getMessage());
         } catch (IOException e) {
@@ -54,7 +54,44 @@ public class ReproductorMidi {
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
+
+    @Override
+    public void send(MidiMessage message, long timeStamp) {
+        if(message instanceof ShortMessage msgCorto){
+
+            int nCanal = msgCorto.getChannel();
+            if(!(nCanal == 9)){ //Si el canal es 9 termina sin hacer nada
+                int notaMusical = msgCorto.getData1();
+                if(this.piano.getTeclaFinal() <= notaMusical
+                        && this.piano.getTeclaInicial() >= notaMusical){
+                    Tecla teclaSeleccionada = this.piano.getTecla(nCanal,notaMusical);
+                    int nComando = msgCorto.getCommand();
+
+                    if(nComando == ShortMessage.NOTE_ON){ //TECLA PULSADA
+                        int volumen = msgCorto.getData2();
+                        if(volumen>0){ //si el volumen es positibo
+                            teclaSeleccionada.setColorPulsado(ReproductorMidi.COLORES[nCanal]);
+                            //Le ponemos el color del número de Canal del que viene el sonido
+                            teclaSeleccionada.pulsar();
+                        } else {
+                            teclaSeleccionada.soltar();
+                        }
+                        teclaSeleccionada.
+                    }
+                    if(nComando == ShortMessage.NOTE_OFF){
+
+                    }
+
+                } //No hay una tecla para esa nota Musical
+            }
+
+        } //Termina sin hacer nada, ya que no es "ShortMessage"
+    }
+
+    @Override
+    public void close() {
+
+    }
 }
