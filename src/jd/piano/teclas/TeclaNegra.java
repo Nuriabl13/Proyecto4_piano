@@ -12,14 +12,25 @@ public class TeclaNegra extends Tecla {
 
     @Override
     protected int[] getVerticesX() {
-        int[] x = new int[];
+        int[] x = new int[]{
+                super.posicion.x,
+                super.posicion.x,
+                super.posicion.x+this.getAnchura(),
+                super.posicion.x+this.getAnchura()
+        };
         return x;
 
     }
 
     @Override
     protected int[] getVerticesY() {
-        return new int[0];
+        int[] y = new int[]{
+                super.posicion.y,
+                super.posicion.y+this.getAltura(),
+                super.posicion.y+this.getAltura(),
+                super.posicion.x
+        };
+        return y;
     }
 
     @Override
