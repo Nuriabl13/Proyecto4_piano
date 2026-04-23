@@ -1,4 +1,4 @@
-package javax.sound.midi;
+package jd.piano.programas;
 
 public class ReproductorMidi {
 }
