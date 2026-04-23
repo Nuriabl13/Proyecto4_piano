@@ -18,7 +18,7 @@ public class PianoSencillo extends Piano {
 
     @Override
     public Tecla getTecla(int canal, int nota) {
-        return null;
+        return this.teclas.get(nota);
     }
 
     @Override
