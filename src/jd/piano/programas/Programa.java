@@ -30,13 +30,14 @@ public class Programa {
         int num = teclado.leerNumeroEntero();
 
         if (num == 1){
+            texto.cls();
             Piano piano = new PianoSencillo(24,108);
             piano.setPosicion(10,10);
             piano.setGraphics(graphics);
-            piano.dibujar();
             ReproductorMidi reproductor = new ReproductorMidi();
             reproductor.conectar(piano);
             reproductor.reproducir(ruta);
+            piano.dibujar();
         }
 
 

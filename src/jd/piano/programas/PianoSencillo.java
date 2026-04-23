@@ -28,12 +28,13 @@ public class PianoSencillo extends Piano {
         for (int i = super.getTeclaInicial();i<super.getTeclaFinal();i++){
             Tecla tecla = this.teclas.get(i);
             if (tecla instanceof TeclaBlanca blanca){
-                tecla.setPosicion(x1,y1);
-                x1+=tecla.getAnchura();
+                blanca.setPosicion(x1,y1);
+                x1+=blanca.getAnchura();
             }else {
                 tecla.setPosicion(x1- TeclaNegra.ANCHURA/2, y1);
             }
         }
+        this.dibujar();
     }
 
     @Override
@@ -56,7 +57,7 @@ public class PianoSencillo extends Piano {
         for (int i = super.getTeclaInicial();i<super.getTeclaFinal();i++){
             Tecla tecla = this.teclas.get(i);
             if (tecla instanceof TeclaBlanca blanca){
-                anchura+=tecla.getAnchura();
+                anchura+=blanca.getAnchura();
             }
         }
         return anchura;
@@ -68,7 +69,7 @@ public class PianoSencillo extends Piano {
         for (int i = super.getTeclaInicial();i<super.getTeclaFinal();i++){
             Tecla tecla = this.teclas.get(i);
             if (tecla instanceof TeclaBlanca blanca){
-                altura=tecla.getAltura();
+                altura=blanca.getAltura();
             }
         }
         return altura;
