@@ -1,4 +1,23 @@
 package jd.piano.teclas;
 
-public class Piano {
+import javax.swing.text.Position;
+import java.awt.*;
+
+public abstract class Piano {
+    private int teclaInicial;
+    private int teclaFinal;
+    private Position posicion;
+    private Graphics graphics;
+
+    public Piano(){
+
+    }
+    public abstract Tecla getTecla(int canal, int nota);
+
+    public int getTeclaInicial(){
+        return 0;
+    }
+    public int getTeclaFinal(){
+        return 0;
+    }
 }
