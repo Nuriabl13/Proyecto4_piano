@@ -29,19 +29,4 @@ public class TeclaBlanca1 extends TeclaBlanca{
         };
         return y;
     }
-
-    @Override
-    public Color getColorNoPulsado() {
-        return Color.white;
-    }
-
-    @Override
-    public int getAnchura() {
-        return TeclaBlanca.ANCHURA;
-    }
-
-    @Override
-    public int getAltura() {
-        return TeclaBlanca.ALTURA;
-    }
 }
