@@ -9,4 +9,19 @@ public abstract class TeclaBlanca extends Tecla{
     TeclaBlanca(int n){
         super(n);
     }
+
+    @Override
+    public Color getColorNoPulsado() {
+        return Color.white;
+    }
+
+    @Override
+    public int getAnchura() {
+        return TeclaBlanca.ANCHURA;
+    }
+
+    @Override
+    public int getAltura() {
+        return TeclaBlanca.ALTURA;
+    }
 }
